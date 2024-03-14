@@ -43,7 +43,7 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
-  if (query.toLowerCase().includes("multiplied")) {
+  if (query.toLowerCase().includes("square and a cube")) {
     const values = query.match(/\d+/g);
     var sum = 0;
     if (values != null) {
