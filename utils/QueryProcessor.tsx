@@ -28,6 +28,7 @@ export default function QueryProcessor(query: string): string {
       return sum.toString();
     } else {
       return "0";
+    }
   }
 
   if (query.toLowerCase().includes("following numbers is the largest")) {
