@@ -19,5 +19,19 @@ export default function QueryProcessor(query: string): string {
     );
   }
 
+  if (query.toLowerCase().includes("plus")) {
+    const values = query.match(/\d+/g);
+    var sum = 0;
+    for (const value : values.map(Number)) {
+      sum += value;
+    }
+    return sum.toString();
+  }
+
+  if (query.toLowerCase().includes("following numbers is the largest")) {
+    const values = query.match(/\d+/g);
+    return Math.max(...values.map(Number)).toString();
+  }
+
   return "";
 }
