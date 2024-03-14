@@ -55,6 +55,18 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.toLowerCase().includes("power")) {
+    const values = query.match(/\d+/g);
+    var sum = 1;
+    if (values != null) {
+      const numValues = [...values.map(Number)]
+      sum = Math.pow(numValues[0], numValues[1]);
+      return sum.toString();
+    } else {
+      return "0";
+    }
+  }
+
    if (query.toLowerCase().includes("primes")) {
     const values = query.match(/\d+/g);
     var sum = 1;
