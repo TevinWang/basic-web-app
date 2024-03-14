@@ -31,6 +31,19 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+  if (query.toLowerCase().includes("multiplied")) {
+    const values = query.match(/\d+/g);
+    var sum = 1;
+    if (values != null) {
+      const numValues = [...values.map(Number)]
+      numValues.forEach((value) => sum *= value);
+      return sum.toString();
+    } else {
+      return "0";
+    }
+  }
+
+
   if (query.toLowerCase().includes("following numbers is the largest")) {
     const values = query.match(/\d+/g);
     if (values != null) {
