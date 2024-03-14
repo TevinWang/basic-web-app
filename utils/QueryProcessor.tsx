@@ -33,7 +33,11 @@ export default function QueryProcessor(query: string): string {
 
   if (query.toLowerCase().includes("following numbers is the largest")) {
     const values = query.match(/\d+/g);
-    return Math.max(...values.map(Number)).toString();
+    if (values != null) {
+      return Math.max(...values.map(Number)).toString();
+    } else {
+      return "0";
+    }
   }
 
   return "";
