@@ -49,7 +49,7 @@ export default function QueryProcessor(query: string): string {
     if (values != null) {
       const numValues = [...values.map(Number)]
       numValues.forEach((value) => {
-         if (Math.sqrt(value) % 1 === 0 && Math.cbrt(value) % 1 === 0) {
+         if (Number.isInteger(Math.sqrt(value)) && Number.isInteger(Math.cbrt(value))) {
            sum = value;
          }
       });
