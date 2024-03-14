@@ -69,7 +69,7 @@ export default function QueryProcessor(query: string): string {
 
    if (query.toLowerCase().includes("primes")) {
     const values = query.match(/\d+/g);
-    var sum = 1;
+    var sum = [];
     if (values != null) {
       const numValues = [...values.map(Number)]
       numValues.forEach((value) => {
@@ -85,10 +85,10 @@ export default function QueryProcessor(query: string): string {
         }
 
         if (isPrime) {
-          sum = value;
+          sum.append(value.toString());
         }
       });
-      return sum.toString();
+      return sum.join(',');
     } else {
       return "0";
     }
