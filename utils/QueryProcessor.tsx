@@ -43,6 +43,33 @@ export default function QueryProcessor(query: string): string {
     }
   }
 
+   if (query.toLowerCase().includes("primes")) {
+    const values = query.match(/\d+/g);
+    var sum = 1;
+    if (values != null) {
+      const numValues = [...values.map(Number)]
+      numValues.forEach((value) => {
+        const isPrime = true;
+        if (value < 2) {
+          return false;
+        }
+
+        for (let i = 2; i <= Math.sqrt(value); i++) {
+          if (value % i === 0) {
+              return false;
+          }
+        }
+
+        if (isPrime) {
+          sum = value;
+        }
+      });
+      return sum.toString();
+    } else {
+      return "0";
+    }
+  }
+
   if (query.toLowerCase().includes("square and a cube")) {
     const values = query.match(/\d+/g);
     var sum = 0;
