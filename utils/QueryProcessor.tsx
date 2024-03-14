@@ -23,9 +23,7 @@ export default function QueryProcessor(query: string): string {
     const values = query.match(/\d+/g);
     var sum = 0;
     const numValues = [...values.map(Number)]
-    for (const value : numValues) {
-      sum += value;
-    }
+    numValues.forEach((value) => sum += value);
     return sum.toString();
   }
 
